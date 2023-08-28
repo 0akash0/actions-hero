@@ -1,14 +1,16 @@
-name: shell commands
+name: Run Hello World
 
 on: [push]
 
-jobs: 
-  run-shell-commands:
-    runs-on: ubuntu:latest
+jobs:
+  run-hello-world:
+    runs-on: ubuntu-latest
+
     steps:
-      - name: string
-        run: echo "welcome to devops"
-      - name: multiline script
-        run: |
-          node -v
-          npm -v
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Run Hello World
+      run: echo "Hello, World!"
+
+     
