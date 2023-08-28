@@ -12,3 +12,9 @@ jobs:
 
     - name: Run Hello World
       run: echo "Hello, World!"
+
+    - name: python command
+      run: |
+        import platform
+        print (platform.processer())
+      shell: python
