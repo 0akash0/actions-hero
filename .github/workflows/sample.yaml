@@ -1,19 +1,14 @@
-name: Run Sample Script
+name: Run Hello World
 
 on: [push]
 
 jobs:
-  run-script:
+  run-hello-world:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.x
-
-    - name: Run Sample Script
-      run: python path/to/your/sample_script.py
+    - name: Run Hello World
+      run: echo "Hello, World!"
