@@ -1,14 +1,19 @@
-name: shell commands
+name: Run Sample Script
 
 on: [push]
 
-jobs: 
-  run-shell-commands:
-    runs-on: ubuntu:latest
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
     steps:
-      - name: string
-        run: echo "welcome to devops"
-      - name: multiline script
-        run: |
-          node -v
-          npm -v
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+
+    - name: Run Sample Script
+      run: python path/to/your/sample_script.py
