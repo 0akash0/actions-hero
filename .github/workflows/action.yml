@@ -8,7 +8,7 @@ jobs:
         steps:
             - name: sample javascript action
               id: hello
-              uses: action/hello-world-javascript@v1 
+              uses: action/hello-world-javascript-action@v1 
               with:
                 who-to-greet: devopshint
 
