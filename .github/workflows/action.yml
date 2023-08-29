@@ -1,0 +1,16 @@
+name: action workflow
+
+on: [push]
+
+jobs:
+    run-github-actions:
+        runs-on: ubuntu-latest
+        steps:
+            - name: sample javascript action
+              id: hello
+              uses: action/hello-world-javascript@v1 
+              with:
+                who-to-greet: devopshint
+
+            - name: get the output time
+              run: echo "{{hello.steps.outputs.time}}"
