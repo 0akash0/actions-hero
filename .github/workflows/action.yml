@@ -8,8 +8,8 @@ jobs:
         steps:
             - name: list files
               run: |
-              pwd
-              ls 
+                pwd 
+                ls
             - name: sample javascript action
               id: hello
               uses: action/hello-world-javascript-action@v1 
