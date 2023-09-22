@@ -1,0 +1,29 @@
+name: Minikube Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Minikube
+      run: |
+        minikube start
+        minikube kubectl -- get pods --all-namespaces
+        minikube addons enable ingress
+        minikube addons list
+      env:
+        KUBECONFIG: ${{ runner.workspace }}/kubeconfig.yaml
+
+    - name: Deploy to Minikube
+      run: |
+        kubectl apply -f path/to/your/kubernetes/manifests
+      env:
+        KUBECONFIG: ${{ runner.workspace }}/kubeconfig.yaml
